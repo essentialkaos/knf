@@ -12,13 +12,13 @@
 
 <br/>
 
-`knf` is a simple utility for reading values from KNF files.
+`knf` is a simple utility for reading values from [KNF files](https://kaos.sh/knf-spec).
 
 ### Installation
 
 #### From source
 
-To build the `knf` from scratch, make sure you have a working Go 1.16+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `knf` from scratch, make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/knf
@@ -26,7 +26,7 @@ go install github.com/essentialkaos/knf
 
 #### Prebuilt binaries
 
-You can download prebuilt binaries for Linux and OS X from [EK Apps Repository](https://apps.kaos.st/knf/latest):
+You can download prebuilt binaries for Linux and macOS from [EK Apps Repository](https://apps.kaos.st/knf/latest):
 
 ```bash
 bash <(curl -fsSL https://apps.kaos.st/get) knf
