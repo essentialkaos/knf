@@ -28,7 +28,7 @@ import (
 
 const (
 	APP  = "knf"
-	VER  = "0.0.2"
+	VER  = "0.0.3"
 	DESC = "Simple utility for reading values from KNF files"
 )
 
@@ -101,8 +101,9 @@ func configureUI() {
 }
 
 // process starts processing
-func process(args []string) {
-	file, prop := args[0], args[1]
+func process(args options.Arguments) {
+	file := args.Get(0).Clean().String()
+	prop := args.Get(1).String()
 
 	err := fsutil.ValidatePerms("FRS", file)
 
