@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	"strings"
 
 	"github.com/essentialkaos/ek/v12/fmtc"
 	"github.com/essentialkaos/ek/v12/fsutil"
@@ -19,6 +18,7 @@ import (
 	"github.com/essentialkaos/ek/v12/options"
 	"github.com/essentialkaos/ek/v12/support"
 	"github.com/essentialkaos/ek/v12/support/deps"
+	"github.com/essentialkaos/ek/v12/terminal/tty"
 	"github.com/essentialkaos/ek/v12/usage"
 	"github.com/essentialkaos/ek/v12/usage/completion/bash"
 	"github.com/essentialkaos/ek/v12/usage/completion/fish"
@@ -101,24 +101,7 @@ func Run(gitRev string, gomod []byte) {
 
 // preConfigureUI preconfigures UI based on information about user terminal
 func preConfigureUI() {
-	term := os.Getenv("TERM")
-
-	fmtc.DisableColors = true
-
-	if term != "" {
-		switch {
-		case strings.Contains(term, "xterm"),
-			strings.Contains(term, "color"),
-			term == "screen":
-			fmtc.DisableColors = false
-		}
-	}
-
-	if !fsutil.IsCharacterDevice("/dev/stdout") && os.Getenv("FAKETTY") == "" {
-		fmtc.DisableColors = true
-	}
-
-	if os.Getenv("NO_COLOR") != "" {
+	if !tty.IsTTY() {
 		fmtc.DisableColors = true
 	}
 }
@@ -159,11 +142,6 @@ func printError(f string, a ...interface{}) {
 	fmtc.Fprintf(os.Stderr, "{r}"+f+"{!}\n", a...)
 }
 
-// printError prints warning message to console
-func printWarn(f string, a ...interface{}) {
-	fmtc.Fprintf(os.Stderr, "{y}"+f+"{!}\n", a...)
-}
-
 // printErrorAndExit print error message and exit with exit code 1
 func printErrorAndExit(f string, a ...interface{}) {
 	printError(f, a...)
@@ -178,11 +156,11 @@ func printCompletion() int {
 
 	switch options.GetS(OPT_COMPLETION) {
 	case "bash":
-		fmt.Printf(bash.Generate(info, "knf"))
+		fmt.Print(bash.Generate(info, "knf"))
 	case "fish":
-		fmt.Printf(fish.Generate(info, "knf"))
+		fmt.Print(fish.Generate(info, "knf"))
 	case "zsh":
-		fmt.Printf(zsh.Generate(info, optMap, "knf"))
+		fmt.Print(zsh.Generate(info, optMap, "knf"))
 	default:
 		return 1
 	}
