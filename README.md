@@ -61,25 +61,7 @@ knf --generate-man | sudo gzip > /usr/share/man/man1/knf.1.gz
 
 ### Usage
 
-```
-Usage: knf {options} knf-file property
-
-Options
-
-  --exist, -E        Checks if given param is exist
-  --no-color, -nc    Disable colors in output
-  --help, -h         Show this help message
-  --version, -v      Show version
-
-Examples
-
-  knf file.knf server:ip
-  Read server:ip param value
-
-  knf -E file.knf server:ip
-  Checks if server:ip param is exist in KNF file
-
-```
+<img src=".github/images/usage.svg" />
 
 ### Build Status
 
