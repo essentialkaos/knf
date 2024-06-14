@@ -1,14 +1,14 @@
-<p align="center"><a href="#readme"><img src="https://gh.kaos.st/knf.svg"/></a></p>
+<p align="center"><a href="#readme"><img src=".github/images/card.svg"/></a></p>
 
 <p align="center">
   <a href="https://kaos.sh/w/knf/ci"><img src="https://kaos.sh/w/knf/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/r/knf"><img src="https://kaos.sh/r/knf.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/b/knf"><img src="https://kaos.sh/b/4373cae8-963f-40f0-a45c-ff32b5a785fa.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/w/knf/codeql"><img src="https://kaos.sh/w/knf/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
-  <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
+  <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
-<p align="center"><a href="#installation">Installation</a> • <a href="#command-line-completion">Command-line completion</a> • <a href="#man-documentation">Man documentation</a> • <a href="#usage">Usage</a> • <a href="#build-status">Build Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#installation">Installation</a> • <a href="#command-line-completion">Command-line completion</a> • <a href="#man-documentation">Man documentation</a> • <a href="#usage">Usage</a> • <a href="#ci-status">CI Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
 
 <br/>
 
@@ -18,7 +18,7 @@
 
 #### From source
 
-To build the `knf` from scratch, make sure you have a working Go 1.17+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `knf` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/knf
@@ -61,9 +61,9 @@ knf --generate-man | sudo gzip > /usr/share/man/man1/knf.1.gz
 
 ### Usage
 
-<img src=".github/images/usage.svg" />
+<p align="center"><img src=".github/images/usage.svg"/></p>
 
-### Build Status
+### CI Status
 
 | Branch | Status |
 |--------|----------|
