@@ -21,7 +21,7 @@
 To build the `knf` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
-go install github.com/essentialkaos/knf
+go install github.com/essentialkaos/knf@latest
 ```
 
 #### Prebuilt binaries
