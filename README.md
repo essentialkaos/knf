@@ -2,7 +2,6 @@
 
 <p align="center">
   <a href="https://kaos.sh/w/knf/ci"><img src="https://kaos.sh/w/knf/ci.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/b/knf"><img src="https://kaos.sh/b/4373cae8-963f-40f0-a45c-ff32b5a785fa.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/w/knf/codeql"><img src="https://kaos.sh/w/knf/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
