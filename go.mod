@@ -2,7 +2,7 @@ module github.com/essentialkaos/knf
 
 go 1.23.6
 
-require github.com/essentialkaos/ek/v13 v13.23.1
+require github.com/essentialkaos/ek/v13 v13.24.0
 
 require (
 	github.com/essentialkaos/depsy v1.3.1 // indirect
