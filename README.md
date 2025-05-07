@@ -2,7 +2,6 @@
 
 <p align="center">
   <a href="https://kaos.sh/w/knf/ci"><img src="https://kaos.sh/w/knf/ci.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/b/knf"><img src="https://kaos.sh/b/4373cae8-963f-40f0-a45c-ff32b5a785fa.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/w/knf/codeql"><img src="https://kaos.sh/w/knf/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
@@ -17,7 +16,7 @@
 
 #### From source
 
-To build the `knf` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `knf` from scratch, make sure you have a working [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/knf@latest
@@ -71,10 +70,10 @@ knf --generate-man | sudo gzip > /usr/share/man/man1/knf.1.gz
 
 ### Contributing
 
-Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/contributing-guidelines#contributing-guidelines).
+Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/.github/blob/master/CONTRIBUTING.md).
 
 ### License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-<p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
+<p align="center"><a href="https://kaos.dev"><img src="https://raw.githubusercontent.com/essentialkaos/.github/refs/heads/master/images/ekgh.svg"/></a></p>
