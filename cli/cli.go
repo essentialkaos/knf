@@ -32,7 +32,7 @@ import (
 
 const (
 	APP  = "knf"
-	VER  = "0.1.2"
+	VER  = "0.1.3"
 	DESC = "Simple utility for reading values from KNF files"
 )
 
@@ -134,7 +134,7 @@ func process(args options.Arguments) {
 		printErrorAndExit(file)
 	}
 
-	if options.GetB(OPT_EXIST) && !config.HasProp(prop) {
+	if options.GetB(OPT_EXIST) && !config.Has(prop) {
 		os.Exit(1)
 	} else {
 		fmt.Println(config.GetS(prop))
