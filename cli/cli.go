@@ -32,7 +32,7 @@ import (
 
 const (
 	APP  = "knf"
-	VER  = "0.1.3"
+	VER  = "0.2.0"
 	DESC = "Simple utility for reading values from KNF files"
 )
 
@@ -44,6 +44,7 @@ const (
 	OPT_HELP     = "h:help"
 	OPT_VER      = "v:version"
 
+	OPT_UPDATE       = "U:update"
 	OPT_VERB_VER     = "vv:verbose-version"
 	OPT_COMPLETION   = "completion"
 	OPT_GENERATE_MAN = "generate-man"
@@ -69,6 +70,7 @@ func Run(gitRev string, gomod []byte) {
 	runtime.GOMAXPROCS(1)
 
 	preConfigureUI()
+	preConfigureOptions()
 
 	args, errs := options.Parse(optMap)
 
@@ -95,6 +97,8 @@ func Run(gitRev string, gomod []byte) {
 			WithDeps(deps.Extract(gomod)).
 			Print()
 		os.Exit(0)
+	case withSelfUpdate && options.GetB(OPT_UPDATE):
+		os.Exit(updateBinary())
 	case options.GetB(OPT_HELP) || len(args) < 2:
 		genUsage().Print()
 		os.Exit(0)
@@ -108,6 +112,11 @@ func preConfigureUI() {
 	if !tty.IsTTY() {
 		fmtc.DisableColors = true
 	}
+}
+
+// preConfigureOptions preconfigures command-line options based on build tags
+func preConfigureOptions() {
+	optMap.SetIf(withSelfUpdate, OPT_UPDATE, &options.V{Type: options.MIXED})
 }
 
 // configureUI configures user interface
@@ -178,6 +187,11 @@ func genUsage() *usage.Info {
 
 	info.AddOption(OPT_EXIST, "Checks if given param is exist")
 	info.AddOption(OPT_NO_COLOR, "Disable colors in output")
+
+	if withSelfUpdate {
+		info.AddOption(OPT_UPDATE, "Update application to the latest version")
+	}
+
 	info.AddOption(OPT_HELP, "Show this help message")
 	info.AddOption(OPT_VER, "Show version")
 
