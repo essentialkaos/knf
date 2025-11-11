@@ -16,7 +16,7 @@
 
 #### From source
 
-To build the `knf` from scratch, make sure you have a working [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `knf` from scratch, make sure you have a working [Go 1.24+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/knf@latest
@@ -30,23 +30,37 @@ You can download prebuilt binaries for Linux and macOS from [EK Apps Repository]
 bash <(curl -fsSL https://apps.kaos.st/get) knf
 ```
 
+### Upgrading
+
+Since version `0.2.0` you can update `knf` to the latest release using [self-update feature](https://github.com/essentialkaos/.github/blob/master/APPS-UPDATE.md):
+
+```bash
+knf --update
+```
+
+This command will runs a self-update in interactive mode. If you want to run a quiet update (_no output_), use the following command:
+
+```bash
+knf --update=quiet
+```
+
 ### Command-line completion
 
 You can generate completion for `bash`, `zsh` or `fish` shell.
 
 Bash:
 ```bash
-sudo knf --completion=bash 1> /etc/bash_completion.d/knf
+knf --completion=bash | sudo tee /etc/bash_completion.d/knf > /dev/null
 ```
 
 ZSH:
 ```bash
-sudo knf --completion=zsh 1> /usr/share/zsh/site-functions/knf
+knf --completion=zsh | sudo tee /usr/share/zsh/site-functions/knf > /dev/null
 ```
 
 Fish:
 ```bash
-sudo knf --completion=fish 1> /usr/share/fish/vendor_completions.d/knf.fish
+knf --completion=fish | sudo tee /usr/share/fish/vendor_completions.d/knf.fish > /dev/null
 ```
 
 ### Man documentation
